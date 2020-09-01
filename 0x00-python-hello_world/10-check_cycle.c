@@ -6,8 +6,8 @@ int check_cycle(listint_t *list)
 	listint_t *head_value;
 	listint_t *current = NULL;
 
-	if (list == NULL | *list == '\0' )
-		return(0);
+	if (list == NULL)
+		return (0);
 
 	head_value = list;
 	current = list;
