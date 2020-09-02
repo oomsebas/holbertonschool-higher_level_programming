@@ -10,14 +10,19 @@ listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *current;
 	listint_t *next;
-	listint_t *new;
+	listint_t *new = NULL;
+
+	if (head == NULL)
+		return (NULL);
 
 	current = *head;
-/*	if (number < current->n)
-	{
-		add_nodeint(head, number);
-		return (*head);
-		}*/
+/*
+ *	if (number < current->n)
+ *	{
+ *		add_nodeint(head, number);
+ *		return (*head);
+ *       }
+ */
 	for (; current->next != NULL; current = current->next)
 	{
 		next = current->next;
@@ -29,10 +34,10 @@ listint_t *insert_node(listint_t **head, int number)
 			new->n = number;
 			new->next = next;
 			current->next = new;
-			return (*head);
+			return (new);
 		}
 	}
-	if(number > current->n)
+	if (number > current->n)
 		add_nodeint_end(head, number);
-	return (*head);
+	return (new);
 }
