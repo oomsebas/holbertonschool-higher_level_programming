@@ -13,11 +13,11 @@ listint_t *insert_node(listint_t **head, int number)
 	listint_t *new;
 
 	current = *head;
-	if (number < current->n)
+/*	if (number < current->n)
 	{
 		add_nodeint(head, number);
 		return (*head);
-	}
+		}*/
 	for (; current->next != NULL; current = current->next)
 	{
 		next = current->next;
