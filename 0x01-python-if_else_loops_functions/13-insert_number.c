@@ -32,6 +32,7 @@ listint_t *insert_node(listint_t **head, int number)
 			return (*head);
 		}
 	}
-	add_nodeint_end(head, number);
+	if(number > current->n)
+		add_nodeint_end(head, number);
 	return (*head);
 }
