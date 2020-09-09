@@ -18,8 +18,6 @@ int is_palindrome(listint_t **head)
 	{
 		add_nodeint(&cpy, rev->n);
 	}
-	printf("----------------\n");
-	print_listint(cpy);
 	rev = *head;
 	while (rev != NULL)
 	{
