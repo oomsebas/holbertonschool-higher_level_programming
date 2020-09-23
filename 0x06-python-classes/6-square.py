@@ -49,17 +49,9 @@ class Square:
         left_pos = self.__position[0]
         print("\n" * self.__position[1], end="")
         for i in range(self.__size):
-            for j in range(self.__size + self.__position[0]):
-                if left_pos > 0 and self.__position[1] == 0:
-                    print(" ", end="")
-                    left_pos -= 1
-                elif left_pos > 0 and self.__position[1] > 0:
-                    print("_", end="")
-                    left_pos -= 1
-                else:
-                    print("#", end="")
-                left_pos = self.position[0]
-                print()
+            print(" " * self.__position[0], end="")
+            print("#" * self.__size, end="")
+            print()
 
     @property
     def position(self):
@@ -69,11 +61,11 @@ class Square:
     @position.setter
     def position(self, value):
         """Setter for position private instance attribute"""
-        if type(position[0]) is not int or type(position[1]) is not int:
+        if type(value[0]) is not int or type(value[1]) is not int:
             TypeError("position must be a tuple of 2 positive integers")
-        elif position[0] < 0 or position[1] < 0:
+        elif value[0] < 0 or value[1] < 0:
             TypeError("position must be a tuple of 2 positive integers")
-        elif len(position) is not 2 or type(position) is not tuple:
+        elif len(value) != 2 or type(value) is not tuple:
             TypeError("position must be a tuple of 2 positive integers")
         else:
-            self.__position = position
+            self.__position = value
