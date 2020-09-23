@@ -12,11 +12,11 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = size
-        if type(position[0]) is not int and type(position[1]) is not int:
+        if type(position[0]) is not int or type(position[1]) is not int:
             TypeError("position must be a tuple of 2 positive integers")
         elif position[0] < 0 or position[1] < 0:
             TypeError("position must be a tuple of 2 positive integers")
-        elif len(position) is not 2:
+        elif len(position) is not 2 or type(position) is not tuple:
             TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = position
@@ -69,11 +69,11 @@ class Square:
     @position.setter
     def position(self, value):
         """Setter for position private instance attribute"""
-        if type(position[0]) is not int and type(position[1]) is not int:
+        if type(position[0]) is not int or type(position[1]) is not int:
             TypeError("position must be a tuple of 2 positive integers")
         elif position[0] < 0 or position[1] < 0:
             TypeError("position must be a tuple of 2 positive integers")
-        elif len(position) is not 2 and type(position) is not tuple:
+        elif len(position) is not 2 or type(position) is not tuple:
             TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = position
