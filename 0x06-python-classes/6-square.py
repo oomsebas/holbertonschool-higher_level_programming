@@ -12,12 +12,13 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = size
-        if type(position[0]) is not int or type(position[1]) is not int:
-            TypeError("position must be a tuple of 2 positive integers")
+
+        if type(position) is not tuple or len(position) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif type(position[0]) is not int or type(position[1]) is not int:
+            raise TypeError("position must be a tuple of 2 positive integers")
         elif position[0] < 0 or position[1] < 0:
-            TypeError("position must be a tuple of 2 positive integers")
-        elif len(position) is not 2 or type(position) is not tuple:
-            TypeError("position must be a tuple of 2 positive integers")
+            raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = position
 
@@ -46,7 +47,6 @@ class Square:
             print()
             return
 
-        left_pos = self.__position[0]
         print("\n" * self.__position[1], end="")
         for i in range(self.__size):
             print(" " * self.__position[0], end="")
@@ -61,11 +61,11 @@ class Square:
     @position.setter
     def position(self, value):
         """Setter for position private instance attribute"""
-        if type(value[0]) is not int or type(value[1]) is not int:
-            TypeError("position must be a tuple of 2 positive integers")
+        if len(position) != 2 or type(position) is not tuple:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif type(position[0]) is not int or type(position[1]) is not int:
+            raise TypeError("position must be a tuple of 2 positive integers")
         elif value[0] < 0 or value[1] < 0:
-            TypeError("position must be a tuple of 2 positive integers")
-        elif len(value) != 2 or type(value) is not tuple:
-            TypeError("position must be a tuple of 2 positive integers")
+            raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = value
