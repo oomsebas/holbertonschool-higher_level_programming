@@ -8,47 +8,30 @@ max_integer = __import__('6-max_integer').max_integer
 
 class TestMaxInteger(unittest.TestCase):
 
-    def regular_cases(self):
-       """Check for regular inputs"""
-       self.assertEqual(max_integer([1, 2, 3, 4, 5]), 5)
-       self.assertEqual(max_integer([100, 50, 1, 68]), 100)
-       self.assertEqual(max_integer([-1, 5, 8]), -1)
-       self.assertEqual(max_integer([98, 115, 3]), 115)
-       self.assertEqual(max_integer([-1, -5, -8]), -1)
-       self.assertIsNone(max_integer())
-       self.assertEqual(max_integer(1), 1)
+    def test_max_end(self):
+        """Check output for normal input"""
+        self.assertEqual(max_integer([1, 2, 3, 4, 5]), 5)
 
-    def check_empty(self):
-        """Check for an empty list"""
-        self.assertIsNone(max_integer([]))
+    def test_max_begin(self):
+        """Check output for normal input"""
+        self.assertEqual(max_integer([100, 50, 1, 68]), 100)
 
-    def check_tuple(self):
-        """Check for different types of input"""
-        self.assertEqual(max_integer((2, 3)), 3)
+    def test_max_middle_neg(self):
+        """Check output for normal input"""
+        _list = [-1, 8, 5]
+        self.assertEqual(max_integer(_list), 8)
 
-    def check_None(self):
-        """Check for different types of input"""
-        self.assertIsNone(max_integer(None))
+    def test_max_at_middle(self):
+        """Check output for normal input"""
+        self.assertEqual(max_integer([98, 115, 3]), 115)
 
-    def test_float(self):
-        """Check for floats"""
-        _list = [1.5, 2.4, 3.5, 4.1]
-        self.assertEqual(max_integer(_list), 4.1)
+    def test_max_neg(self):
+        """Check output for normal input"""
+        self.assertEqual(max_integer([-1, -5, -8]), -1)
 
-    def test_docstringmod(self):
-        """Check docstring for module"""
-        m = __import__('6-max_integer').__doc__
-        self.assertTrue(m is not None and len(m) > 0)
-
-    def test_docstringfunc(self):
-        f = __import__('6-max_integer').max_integer.__doc__
-        self.assertTrue(f is not None and len(f) > 5)
-
-    def test_morethan(self):
-        # check that max_integer fails when you pass more than one argument
-        with self.assertRaises(TypeError):
-            _max = max_integer(1, 1)
-
+    def test_max_at_one(self):
+        """Check output for normal input"""
+        self.assertEqual(max_integer([1]), 1)
 
 if __name__ == '__main__':
     unittest.main()
