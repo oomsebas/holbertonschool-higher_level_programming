@@ -1,15 +1,15 @@
-#0x07. Python - Test-driven development
+# 0x07. Python - Test-driven development
 
 ## Learning Objectives
 
 <ol>
-Why Python programming is awesome
-What’s an interactive test
-Why tests are important
-How to write Docstrings to create tests
-How to write documentation for each module and function
-What are the basic option flags to create tests
-How to find edge cases
+<li>Why Python programming is awesome</li>
+<li>What’s an interactive test</li>
+<li>Why tests are important</li>
+<li>How to write Docstrings to create tests</li>
+<li>How to write documentation for each module and function</li>
+<li>What are the basic option flags to create tests</li>
+<li>How to find edge cases</li>
 </ol>
 
 ## Tasks
