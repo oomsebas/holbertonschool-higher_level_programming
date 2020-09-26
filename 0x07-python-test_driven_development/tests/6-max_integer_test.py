@@ -33,5 +33,9 @@ class TestMaxInteger(unittest.TestCase):
         """Check output for normal input"""
         self.assertEqual(max_integer([1]), 1)
 
+    def test_empty(self):
+        """check for a empty list"""
+        self.assertIsNone(max_integer())
+
 if __name__ == '__main__':
     unittest.main()
