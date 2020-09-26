@@ -11,8 +11,12 @@ class TestMaxInteger(unittest.TestCase):
     def regular_cases(self):
        """Check for regular inputs"""
        self.assertEqual(max_integer([1, 2, 3, 4, 5]), 5)
-       self.assertEqual(max_integer([50, 100, 1, -8]), 100)
-       self.assertEqual(max_integer([-1, -10, -3]), -1)
+       self.assertEqual(max_integer([100, 50, 1, 68]), 100)
+       self.assertEqual(max_integer([-1, 5, 8]), -1)
+       self.assertEqual(max_integer([98, 115, 3]), 115)
+       self.assertEqual(max_integer([-1, -5, -8]), -1)
+       self.assertIsNone(max_integer())
+       self.assertEqual(max_integer(1), 1)
 
     def check_empty(self):
         """Check for an empty list"""
