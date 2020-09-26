@@ -8,11 +8,11 @@ max_integer = __import__('6-max_integer').max_integer
 
 class TestMaxInteger(unittest.TestCase):
 
-   def regular_cases(self):
-        """Check for regular inputs"""
-        self.assertEqual(max_integer([1, 2, 3, 4, 5]), 5)
-        self.assertEqual(max_integer([50, 100, 1, -8]), 100)
-        self.assertEqual(max_integer([-1, -10, -3]), -1)
+    def regular_cases(self):
+       """Check for regular inputs"""
+       self.assertEqual(max_integer([1, 2, 3, 4, 5]), 5)
+       self.assertEqual(max_integer([50, 100, 1, -8]), 100)
+       self.assertEqual(max_integer([-1, -10, -3]), -1)
 
     def check_empty(self):
         """Check for an empty list"""
