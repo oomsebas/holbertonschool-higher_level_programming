@@ -1,0 +1,52 @@
+Task 4 test module
+=========================
+
+Prototype: def print_square(size):
+size is the size length of the square
+size must be an integer, otherwise raise a TypeError exception with the message
+size must be an integer
+if size is less than 0, raise a ValueError exception with the message size
+must be >= 0
+if size is a float and is less than 0, raise a TypeError exception with the
+message size must be an integer
+_____________________________________________
+
+>>> print_square = __import__('4-print_square').print_square
+
+>>> print_square(4)
+####
+####
+####
+####
+
+>>> print_square(0)
+
+>>> print_square(-1)
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
+
+>>> print_square(1.1)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> print_square(-1.1)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> print_square("Holbi")
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> print_square(float('inf'))
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> print_square(None)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
