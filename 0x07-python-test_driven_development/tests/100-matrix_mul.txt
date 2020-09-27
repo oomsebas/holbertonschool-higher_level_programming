@@ -74,11 +74,11 @@ TypeError: m_a should contain only integers or floats
 
 >>> matrix_mul([[1,2],[1, 2, 3]], [[1], [2]])
 Traceback (most recent call last):
-TypeError: Each row of the m_a  must have the same size
+TypeError: Each row of the m_a must have the same size
 
 >>> matrix_mul([[1,2, 3],[1, 2, 3]], [[1, 2], [2]])
 Traceback (most recent call last):
-TypeError: Each row of the m_b  must have the same size
+TypeError: Each row of the m_b must have the same size
 
 >>> matrix_mul([[1, 2, 3],[1, 2, 3]], [[1, 2], [1, 2]])
 Traceback (most recent call last):
