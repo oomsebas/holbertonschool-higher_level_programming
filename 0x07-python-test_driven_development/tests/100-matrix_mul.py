@@ -57,7 +57,7 @@ def check_lenrow(matrix, name):
     for row in matrix:
         equal.append(len(row))
     if len(set(equal)) != 1 and len(equal) > 1:
-        raise TypeError("Each row of the " + name + " must have the same size")
+        raise TypeError("Each row of the " + name + "must have the same size")
 
 
 def check_mul(m_a, m_b):
