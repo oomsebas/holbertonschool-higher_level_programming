@@ -99,3 +99,18 @@ TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
 >>> matrix_mul()
 Traceback (most recent call last):
 TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+>>> matrix_mul("Holberton",[[5, 6, 7]])
+Traceback (most recent call last):
+TypeError: m_a must be a list
+
+>>> matrix_mul([[5, 6, 7]], "Holberton")
+Traceback (most recent call last):
+TypeError: m_b must be a list
+
+>>> matrix_mul([["holbi", "Sebas"],["orozco", "matrix_mul"]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+TypeError: m_a should contain only integers or floats
+
+>>> matrix_mul([[109090986768687, 2686998798798], [3657576, 89794]], [[1324, 298], [3544, 4877008]])
+[[153959190224681700, 13137023751785305110], [5160860560, 439016014000]]
