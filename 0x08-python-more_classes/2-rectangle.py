@@ -1,4 +1,4 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
 """ Create a empty class for a rectangle"""
 
 
@@ -51,4 +51,4 @@ class Rectangle:
 
     def perimeter(self):
         """Method that returns the perimeter of the rectangle"""
-        return 2 * self.__width + self.__height
+        return (2 * self.__width) + (2 *self.__height)
