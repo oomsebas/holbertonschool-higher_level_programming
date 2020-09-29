@@ -58,7 +58,7 @@ class Rectangle:
     def __str__(self):
         """ print square"""
         square = ""
-       if self.__width is 0 or self.__height is 0:
+        if self.__width is 0 or self.__height is 0:
             return ""
         for i in range(self.__height - 1):
             square += (self.__width * "#") + "\n"
