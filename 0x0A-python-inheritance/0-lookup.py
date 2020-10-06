@@ -4,4 +4,4 @@
 
 def lookup(obj):
     """functions that returns the list available of methos and attributes"""
-    return list(dir(obj))
+    return dir(obj)
