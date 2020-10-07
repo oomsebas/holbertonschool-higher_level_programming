@@ -2,9 +2,11 @@
 """Task 8 create a parent class"""
 
 
-class BaseGeometry:
-    """create a parent class"""
+class BaseGeometry():
+    """create a parent class
+    """
     def area(self):
+        """ empty class"""
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
@@ -16,12 +18,13 @@ class BaseGeometry:
         """
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
-        if  value <= 0:
+        if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
 
 
 class Rectangle(BaseGeometry):
-    """class rectangle"""
+    """class rectangle
+    """
     def __init__(self, width, height):
         """init class"""
         super().__init__()
