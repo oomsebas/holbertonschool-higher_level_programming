@@ -5,7 +5,6 @@
 class Student:
     """ class student
     """
-
     def __init__(self, first_name, second_name, age):
         """init method"""
         self.first_name = first_name
