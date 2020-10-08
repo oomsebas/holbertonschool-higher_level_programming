@@ -17,4 +17,3 @@ else:
     obj = []
 obj.extend(argv[1:])
 save_to_json_file(obj, filename)
-
