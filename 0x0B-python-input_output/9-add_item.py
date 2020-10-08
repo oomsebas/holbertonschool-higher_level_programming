@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-"""read and write a json object"""
-
 
 from sys import argv
 import json
