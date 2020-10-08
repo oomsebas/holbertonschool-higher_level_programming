@@ -12,11 +12,10 @@ class Student:
     def to_json(self, attrs=None):
         """to json"""
         dict = {}
-        if attrs is None or type(attrs) is not list:
+        if attrs is None:
             return self.__dict__
-        if all(isinstance(s, str) for s in attrs):
-            for inst in attrs:
-                dict[inst] = self.__dict__.get(inst)
-            return dict
-        else:
+        if not isinstance(attrs, list):
             return self.__dict__
+        for inst in attrs:
+            dict[inst] = self.__dict__.get(inst)
+        return dict
