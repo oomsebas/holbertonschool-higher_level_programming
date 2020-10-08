@@ -17,5 +17,6 @@ class Student:
         if not isinstance(attrs, list):
             return self.__dict__
         for inst in attrs:
-            dict[inst] = self.__dict__[inst]
+            if inst in self.__dict__.keys():
+                dict[inst] = self.__dict__[inst]
         return dict
