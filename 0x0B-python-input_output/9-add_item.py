@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Task 9 load and write ti json file"""
+
 
 from sys import argv
 import json
@@ -10,8 +12,9 @@ load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
 
 filename = "add_item.json"
 if os.path.isfile(filename):
-    _list = load_from_json_file(filename)
+    obj = load_from_json_file(filename)
 else:
-    _list = []
-_list.extend(argv[1:])
-save_to_json_file(_list, "additem.json")
+    obj = []
+obj.extend(argv[1:])
+save_to_json_file(obj, filename)
+
