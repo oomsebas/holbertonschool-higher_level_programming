@@ -3,6 +3,7 @@
 
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """Class that defines a square inherits from Rectangle"""
     def __init__(self, size, x=0, y=0, id=None):
@@ -33,6 +34,7 @@ class Square(Rectangle):
                     exec('self.{} = {}'.format(key, val))
 
     def to_dictionary(self):
+        """object to dictionary represntation"""
         dict2 = {}
         dict2  = super().to_dictionary()
         del dict2['height']
