@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""test for square class"""
 from models.square import Square
 import unittest
 import inspect
@@ -142,7 +143,7 @@ class TestsSquare(unittest.TestCase):
             self.assertFalse(r1.z)
 
     def test_square_size(self):
-
+        """tests for size assigment"""
         r1 = Square(5)
         with self.assertRaises(ValueError):
             r1.size = 0
@@ -157,4 +158,8 @@ class TestsSquare(unittest.TestCase):
             r1.size = "holberton"
 
     def test_square_dict_repr(self):
+        """test for dict representation"""
         pass
+
+if __name__ == '__main__':
+    unittest.main()

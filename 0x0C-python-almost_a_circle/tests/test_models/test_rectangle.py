@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Rectangle tests"""
+
+
 from models.rectangle import Rectangle
 import unittest
 import inspect
@@ -8,9 +11,11 @@ import pep8
 class TestsRectangle(unittest.TestCase):
     """test class for rectangle"""
     def setUp(self):
+        """Set up"""
         pass
 
     def tearDown(self):
+        """Teardown"""
         pass
 
     def test_docstring(self):
@@ -148,8 +153,8 @@ class TestsRectangle(unittest.TestCase):
         self.assertEqual(r1.x, 2)
         self.assertEqual(r1.y, 122)
 
-        def test_rectangle_update_2(self):
-            """test for kwargs argumets"""
+    def test_rectangle_update_2(self):
+        """test for kwargs argumets"""
         #test the functionality of aal the validation
         with self.assertRaises(ValueError):
             Rectangle(5,5).update(id=1, width=0, height=6, x=3, y=5)
@@ -207,7 +212,6 @@ class TestsRectangle(unittest.TestCase):
         r1.update(id=15 , height=1, x=2, y=122, z=60)
         with self.assertRaises(AttributeError):
             self.assertFalse(r1.z)
-        #
 
 if __name__ == '__main__':
     unittest.main()
