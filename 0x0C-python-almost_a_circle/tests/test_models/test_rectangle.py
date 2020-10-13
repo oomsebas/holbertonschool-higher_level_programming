@@ -34,13 +34,6 @@ class TestsRectangle(unittest.TestCase):
         self.assertEqual(result.total_errors, 0)
 
 
-    def test_rectangle_id(self):
-        """test for id in rectangle"""
-        for i in range(3, 1000):
-            self.assertEqual(Rectangle(i, i).id, i)
-        for i, j in zip(range(1, 100), range(100, 200)):
-            self.assertEqual(Rectangle(i, i, 0, 0, j).id, j)
-
     def test_rectangle_validate_attributes(self):
         """test for the validation cases for the input arguments"""
         self.assertRaises(ValueError, Rectangle, 0, 50)
