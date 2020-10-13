@@ -1,4 +1,4 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
 """ Task 2, retangle class that ihherits from Base class"""
 
 from models.base import Base
