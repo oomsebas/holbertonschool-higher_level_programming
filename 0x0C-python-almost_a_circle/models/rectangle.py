@@ -86,7 +86,7 @@ class Rectangle(Base):
     def __str__(self):
         """representation of class Rectangle"""
         return "[" + str(self.__class__.__name__) + "] " + "(" + str(self.id)\
-            + ")" + str(self.x) + "/" + str(self.y) + " - " + str(self.width)\
+            + ") " + str(self.x) + "/" + str(self.y) + " - " + str(self.width)\
             + "/" + str(self.height)
 
     def update(self, *args, **kwargs):
