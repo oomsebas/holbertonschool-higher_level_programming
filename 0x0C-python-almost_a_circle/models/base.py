@@ -28,8 +28,7 @@ class Base:
         """JSON string representation of list_objs to a file"""
         list_dictionaries = []
         for _obj_dict in list_objs:
-            list_dictionaries.append(_obj_dict.to_dictionary())
-
+            list_dictionaries.append(Base.to_json_string(_obj_dict.to_dictionary()))
         with open(cls.__name__ + ".json", "w") as _file:
                 json.dump(list_dictionaries, _file)
         _file.close()
