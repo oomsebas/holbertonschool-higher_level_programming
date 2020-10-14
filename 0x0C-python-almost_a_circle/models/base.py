@@ -19,7 +19,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """json representation of a class"""
-        if not list_dictionaries or list_dictionaries is None:
+        if list_dictionaries is None or list_objs == []:
             return "[]"
         if (type(list_dictionaries) != list or
            not all(type(x) == dict for x in list_dictionaries)):
@@ -43,7 +43,7 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """the list of the JSON string representation json_string"""
-        if not json_string:
+        if json_string is None or json_string == "":
             return []
         else:
             return json.loads(json_string)
@@ -51,9 +51,12 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """creates an instance according to **dictionary"""
-        r1 = cls(5, 5, 0, 0)
-        r1.update(**dictionary)
-        return r1
+        if cls.__name__ == 'Rectangle':
+            dummy = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
 
     @classmethod
     def load_from_file(cls):
