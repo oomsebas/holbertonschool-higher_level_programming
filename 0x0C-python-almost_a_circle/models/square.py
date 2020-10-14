@@ -43,4 +43,5 @@ class Square(Rectangle):
 
     def __str__(self):
         """representation method"""
-        return "[" + str(self.__class__.__name__) + "] " + "(" + str(self.id) + ") " + str(self.x) + "/" + str(self.y) + " - " + str(self.width)
+        return "[" + str(self.__class__.__name__) + "] " + "(" + str(self.id)\
+            + ") " + str(self.x) + "/" + str(self.y) + " - " + str(self.width)
