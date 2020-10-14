@@ -4,6 +4,7 @@
 import json
 import os
 
+
 class Base:
     """Class base"""
     __nb_objects = 0
