@@ -91,7 +91,7 @@ class Base:
     def load_from_file_csv(cls):
         """reads from a file and creates the intances"""
         list_obj = []
-        if os.path.exists(cls.__name__ + ".json"):
+        if os.path.exists(cls.__name__ + ".csv"):
             with open(cls.__name__ + ".csv", "r") as _file:
                 str_csv = _file.read()
                 _file.close()
