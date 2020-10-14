@@ -3,16 +3,36 @@
 
 
 from models.rectangle import Rectangle
+from models.base import Base
 import unittest
 import inspect
 import pep8
+import io
+import contextlib
 
 
 class TestsRectangle(unittest.TestCase):
     """test class for rectangle"""
     def setUp(self):
         """Set up"""
-        pass
+        Base._Base__nb_objects = 0
+
+    def test_rectangle_id(self):
+        """Check for id."""
+        r0 = Rectangle(1, 2)
+        self.assertEqual(r0.id, 1)
+        r1 = Rectangle(2, 3)
+        self.assertEqual(r1.id, 2)
+        r2 = Rectangle(3, 4)
+        self.assertEqual(r2.id, 3)
+        r3 = Rectangle(10, 2, 0, 0, 12)
+        self.assertEqual(r3.id, 12)
+        r4 = Rectangle(10, 2, 4, 5, 34)
+        self.assertEqual(r4.id, 34)
+        r5 = Rectangle(10, 2, 4, 5, -5)
+        self.assertEqual(r5.id, -5)
+        r6 = Rectangle(10, 2, 4, 5, 9)
+        self.assertEqual(r6.id, 9)
 
     def tearDown(self):
         """Teardown"""
@@ -33,6 +53,12 @@ class TestsRectangle(unittest.TestCase):
         result = pep8style.check_files(["models/base.py"])
         self.assertEqual(result.total_errors, 0)
 
+    def test_rectangle_inheritance(self):
+        """Check for inheritance"""
+        r1 = Rectangle(8, 2)
+        self.assertTrue(isinstance(r1, Base))
+        self.assertTrue(issubclass(Rectangle, Base))
+        self.assertFalse(isinstance(Rectangle, Base))
 
     def test_rectangle_validate_attributes(self):
         """test for the validation cases for the input arguments"""
@@ -96,7 +122,29 @@ class TestsRectangle(unittest.TestCase):
 
     def test_rectangle_display(self):
         """test the display method"""
-        pass
+        f = io.StringIO()
+        r1 = Rectangle(4, 5)
+        with contextlib.redirect_stdout(f):
+            r1.display()
+        s = f.getvalue()
+        res = "####\n####\n####\n####\n####\n"
+        self.assertEqual(s, res)
+
+        #test for wrong arguments
+        with self.assertRaises(TypeError) as x:
+            r1 = Rectangle(9, 6)
+            r1.display(9)
+        self.assertEqual("display() takes 1 positional argument but 2 were given", str(x.exception))
+
+        #test for x and y display
+        f = io.StringIO()
+        r1 = Rectangle(2, 3, 2, 2)
+        with contextlib.redirect_stdout(f):
+            r1.display()
+        s = f.getvalue()
+        res = "\n\n  ##\n  ##\n  ##\n"
+        self.assertEqual(s, res)
+
 
     def test_rectangle_str(self):
         """test the overided method __str__"""
@@ -205,6 +253,25 @@ class TestsRectangle(unittest.TestCase):
         r1.update(id=15 , height=1, x=2, y=122, z=60)
         with self.assertRaises(AttributeError):
             self.assertFalse(r1.z)
+
+    def test_rectangle_todictionary(self):
+        """test to dictionary method"""
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        r_dictionary = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertEqual(len(r1_dictionary), len(r_dictionary))
+        self.assertEqual(type(r1_dictionary), dict)
+        r2 = Rectangle(1, 1)
+        r2.update(**r1_dictionary)
+        r2_dictionary = r2.to_dictionary()
+        self.assertEqual(len(r1_dictionary), len(r2_dictionary))
+        self.assertEqual(type(r2_dictionary), dict)
+        self.assertFalse(r1 == r2)
+        s = "to_dictionary() takes 1 positional argument but 2 were given"
+        with self.assertRaises(TypeError) as x:
+            r1 = Rectangle(10, 2, 1, 9)
+            r1_dictionary = r1.to_dictionary("Hi")
+        self.assertEqual(s, str(x.exception))
 
 if __name__ == '__main__':
     unittest.main()
