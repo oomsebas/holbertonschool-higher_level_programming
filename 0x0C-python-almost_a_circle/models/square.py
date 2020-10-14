@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Task 10 class for square inherits from rectangle class"""
 
+
 from models.rectangle import Rectangle
 
 
@@ -9,7 +10,6 @@ class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         """Constructor"""
         super().__init__(size, size, x, y, id)
-
 
     @property
     def size(self):
@@ -36,7 +36,7 @@ class Square(Rectangle):
     def to_dictionary(self):
         """object to dictionary represntation"""
         dict2 = {}
-        dict2  = super().to_dictionary()
+        dict2 = super().to_dictionary()
         del dict2['height']
         dict2['size'] = dict2.pop('width')
         return dict2
