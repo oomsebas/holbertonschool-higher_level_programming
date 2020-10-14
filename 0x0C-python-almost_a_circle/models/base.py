@@ -2,7 +2,7 @@
 """Task 1 create a base class"""
 
 import json
-
+import os
 
 class Base:
     """Class base"""
@@ -19,7 +19,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """json representation of a class"""
-        if list_dictionaries is None or list_objs == []:
+        if not list_dictionaries:
             return "[]"
         if (type(list_dictionaries) != list or
            not all(type(x) == dict for x in list_dictionaries)):
@@ -62,10 +62,11 @@ class Base:
     def load_from_file(cls):
         """reads from a file and creates the intances"""
         list_obj = []
-        with open(cls.__name__ + ".json", "r") as _file:
-            str_json = _file.read()
-        _file.close()
-        dict = Base.from_json_string(str_json)
-        for obj in dict:
-            list_obj.append(cls.create(**obj))
+        if os.path.exists(cls.__name__ + ".json"):
+            with open(cls.__name__ + ".json", "r") as _file:
+                str_json = _file.read()
+                _file.close()
+                _dict = Base.from_json_string(str_json)
+                for obj in _dict:
+                    list_obj.append(cls.create(**obj))
         return(list_obj)
