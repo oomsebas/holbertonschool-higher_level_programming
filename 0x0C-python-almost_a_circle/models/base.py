@@ -3,6 +3,7 @@
 
 import json
 import os
+import csv
 
 
 class Base:
@@ -68,6 +69,33 @@ class Base:
                 str_json = _file.read()
                 _file.close()
                 _dict = Base.from_json_string(str_json)
+                for obj in _dict:
+                    list_obj.append(cls.create(**obj))
+        return(list_obj)
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """JSON string representation of list_objs to a file"""
+        list_dictionaries = []
+        if list_objs is None or list_objs == []:
+            string_dictionary = "[]"
+        else:
+            for _obj_dict in list_objs:
+                list_dictionaries.append(_obj_dict.to_dictionary())
+            string_dictionary = Base.to_json_string(list_dictionaries)
+        with open(cls.__name__ + ".csv", "w") as _file:
+                _file.write(string_dictionary)
+        _file.close()
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """reads from a file and creates the intances"""
+        list_obj = []
+        if os.path.exists(cls.__name__ + ".json"):
+            with open(cls.__name__ + ".csv", "r") as _file:
+                str_csv = _file.read()
+                _file.close()
+                _dict = Base.from_json_string(str_csv)
                 for obj in _dict:
                     list_obj.append(cls.create(**obj))
         return(list_obj)
