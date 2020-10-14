@@ -20,7 +20,10 @@ class Base:
     def to_json_string(list_dictionaries):
         """json representation of a class"""
         if not list_dictionaries or list_dictionaries is None:
-            return []
+            return "[]"
+        if (type(list_dictionaries) != list or
+           not all(type(x) == dict for x in list_dictionaries)):
+            raise TypeError("list_dictionaries must be a list of dictionaries")
         return json.dumps(list_dictionaries)
 
     @classmethod
@@ -28,9 +31,10 @@ class Base:
         """JSON string representation of list_objs to a file"""
         list_dictionaries = []
         for _obj_dict in list_objs:
-            list_dictionaries.append(Base.to_json_string(_obj_dict.to_dictionary()))
+            list_dictionaries.append(_obj_dict.to_dictionary())
+        string_dictionary = Base.to_json_string(list_dictionaries)
         with open(cls.__name__ + ".json", "w") as _file:
-                json.dump(list_dictionaries, _file)
+                _file.write(string_dictionary)
         _file.close()
 
     @staticmethod
