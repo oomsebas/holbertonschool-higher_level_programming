@@ -5,9 +5,7 @@ from sys import argv
 
 
 def get_all_states(username, password, dbname, stname):
-    """function that returns all the states from a database
-    Your script should take 4 arguments: mysql username, mysql password,
-    database name and state name searched"""
+    """function that returns all the states from a database"""
     db = MySQLdb.connect(host="localhost", port=3306, user=str(username),
                          passwd=str(password), db=str(dbname), charset="utf8")
     cur = db.cursor()
