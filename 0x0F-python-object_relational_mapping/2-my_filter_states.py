@@ -9,7 +9,7 @@ def get_all_states(username, password, dbname, stname):
     Your script should take 4 arguments: mysql username, mysql password,
     database name and state name searched"""
     db = MySQLdb.connect(host="localhost", port=3306, user=str(username),
-                         passwd=str(password), db=str(dbname))
+                         passwd=str(password), db=str(dbname), charset="utf8")
     cur = db.cursor()
     cur.execute("SELECT * FROM states WHERE name='{}';".format(stname))
     rows = cur.fetchall()
