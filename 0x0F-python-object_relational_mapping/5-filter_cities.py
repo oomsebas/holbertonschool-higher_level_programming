@@ -14,7 +14,7 @@ def get_all_states(username, password, dbname, stname):
     cur = db.cursor()
     cur.execute("SELECT cities.name FROM cities RIGHT JOIN\
                 states ON cities.state_id=states.id\
-                WHERE states.name=%(state)s ORDER BY cities.id",
+                WHERE states.name=%(state)s",
                 {'state': stname})
     rows = cur.fetchall()
     for row in rows:
