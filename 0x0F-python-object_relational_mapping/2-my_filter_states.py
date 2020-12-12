@@ -11,7 +11,7 @@ def get_all_states(username, password, dbname, stname):
     db = MySQLdb.connect(host="localhost", port=3306, user=str(username),
                          passwd=str(password), db=str(dbname), charset="utf8")
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '" + stname + "';")
+    cur.execute("SELECT * FROM states WHERE name=%s;",(stname,))
     rows = cur.fetchall()
     for row in rows:
         print(row)
