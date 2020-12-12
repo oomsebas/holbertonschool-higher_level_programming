@@ -17,11 +17,14 @@ def get_all_states(username, password, dbname, stname):
                 WHERE states.name=%(state)s",
                 {'state': stname})
     rows = cur.fetchall()
-    for row in rows:
-        if row is rows[-1]:
-            print(row[0])
-        else:
-            print(row[0], end=", ")
+    if rows:
+        for row in rows:
+            if row is rows[-1]:
+                print(row[0])
+            else:
+                print(row[0], end=", ")
+    else:
+        print()
     cur.close()
     db.close()
 
