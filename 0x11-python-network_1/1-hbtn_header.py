@@ -4,6 +4,6 @@ import urllib.request
 from sys import argv
 req = urllib.request.Request(argv[1])
 with urllib.request.urlopen(req) as response:
-    html2 = response.headers
+    html2 = response.info()
 res = html2.get("X-Request-Id")
 print(res)
