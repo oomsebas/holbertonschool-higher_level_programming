@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-""" request header content to a page """
+"""
+ requests header content to a page and retrives a variable
+"""
+import urllib.request as request
 from sys import argv
-import urllib.request
-req = urllib.request.Request(argv[1])
-with urllib.request.urlopen(req) as response:
-    html2 = response.info()
-res = html2.get("X-Request-Id")
-print(res)
+req = request.Request(argv[1])
+with request.urlopen(req) as response:
+    print(response.headers.get("X-Request-Id"))
