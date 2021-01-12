@@ -8,5 +8,5 @@ if __name__ == '__main__':
     commits = r.json()
     for commit in commits[0:10]:
         print(commit.get('sha'), end=": ")
-        author = commit['commit']['committer']['name']
+        author = commit['commit']['author'].get('name')
         print(author)
