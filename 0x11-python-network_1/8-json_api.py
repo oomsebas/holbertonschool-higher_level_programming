@@ -13,7 +13,7 @@ if __name__ == '__main__':
                 text = r.json()
                 id = text.get('id')
                 name = text.get('name')
-                if len(text) is 0 or not id or not name:
+                if len(text) == 0 or not id or not name:
                         print("Not result")
                 else:
                         print("[{}] {}".format(id, name))
