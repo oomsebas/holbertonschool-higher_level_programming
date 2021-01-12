@@ -15,7 +15,7 @@ if __name__ == '__main__':
         except:
                 print("Not a valid JSON")
         else:
-                if len(text) is 0 or ['id', 'name'] not in text.keys():
+                if len(text) is 0 or 'id' not in text.keys() or 'name' not in text.keys():
                         print("Not result")
                 else:
                         print("[{}] {}".format(text.get('id'),
