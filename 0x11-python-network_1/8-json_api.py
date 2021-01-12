@@ -3,20 +3,18 @@
 import requests
 from sys import argv
 if __name__ == '__main__':
-        if len(argv) <= 1 or len(argv[1]) is 0:
-                dict1 = {'q': ''}
+        if len(argv) == 2:
+                q = argv[1]
         else:
-                dict1 = {'q': argv[1]}
-        url = 'http://f29444c84915.87bf5168.hbtn-cod.io:5000/search_user'
-        url1 = 'http://0.0.0.0:5000/search_user'
-        r = requests.post(url1, data=dict1)
+                q = ""
+        r = requests.post('http://0.0.0.0:5000/search_user', data={'q': q})
         try:
-                text = r.json()
-                id = text.get('id')
-                name = text.get('name')
-                if len(text) is 0 or not id or not name:
-                        print("Not result")
+                r_dict = r.json()
+                id = r_dict.get('id')
+                name = r_dict.get('name')
+                if len(r_dict) == 0 or not id or not name:
+                        print("No result")
                 else:
-                        print("[{}] {}".format(id, name))
-        except ValueError:
+                        print("[{}] {}".format(r_dict.get('id'), r_dict.get('name')))
+        except:
                 print("Not a valid JSON")
