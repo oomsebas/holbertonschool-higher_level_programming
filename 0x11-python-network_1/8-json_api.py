@@ -8,7 +8,8 @@ if __name__ == '__main__':
         else:
                 dict1 = {'q': argv[1]}
         url = 'http://f29444c84915.87bf5168.hbtn-cod.io:5000/search_user'
-        r = requests.post(url, data=dict1)
+        url1 = 'http://0.0.0.0:5000/search_user'
+        r = requests.post(url1, data=dict1)
         try:
                 text = r.json()
         except:
