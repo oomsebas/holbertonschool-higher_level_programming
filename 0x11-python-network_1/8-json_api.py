@@ -14,7 +14,7 @@ if __name__ == '__main__':
         id = text.get('id')
         name = text.get('name')
         if len(text) == 0 or not id or not name:
-            print("Not result")
+            print("No result")
         else:
             print("[{}] {}".format(id, name))
     except:
