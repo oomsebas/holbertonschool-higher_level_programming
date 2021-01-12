@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-""" Creates a request with resques package """
-import requests
-from sys import argv
+""" Creates a request to an API """
 if __name__ == '__main__':
+        import requests
+        from sys import argv
         if len(argv) == 2:
                 q = argv[1]
         else:
