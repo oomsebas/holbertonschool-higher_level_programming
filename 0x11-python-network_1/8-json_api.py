@@ -3,7 +3,7 @@
 import requests
 from sys import argv
 if __name__ == '__main__':
-        if len(argv) is 1:
+        if len(argv) is 1 or len(argv[1]) is 0:
                 dict1 = {'q': ""}
         else:
                 dict1 = {'q': argv[1][0]}
