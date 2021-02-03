@@ -1,9 +1,11 @@
 #!/usr/bin/node
 // Write a script that searches the second biggest integer in the list of arguments.
-const lst = process.argv.slice(2);
+let lst = process.argv.slice(2);
 if (lst.length === 0 || (lst.length === 1)) {
   console.log(0);
 } else {
-  const res = lst.sort()[lst.length - 2];
+  lst = lst.map(Number);
+  console.log(lst.sort(function (a, b) { return a - b; }));
+  const res = Number(lst.sort()[lst.length - 2]);
   console.log(res);
 }
