@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-export function add (a, b) {
+exports.add = function (a, b) {
   const res = a + b;
   return (res);
-}
+};
