@@ -5,7 +5,12 @@ if (lst.length === 0 || (lst.length === 1)) {
   console.log(0);
 } else {
   lst = lst.map(Number);
-  console.log(lst.sort(function (a, b) { return a - b; }));
-  const res = Number(lst.sort()[lst.length - 2]);
-  console.log(res);
+  for (let i = 0; i < lst.length; i++) {
+    if (lst[i + 1] < lst[i]) {
+      const temp = lst[i + 1];
+      lst[i + 1] = lst[i];
+      lst[i] = temp;
+    }
+  }
+  console.log(lst[lst.length - 2]);
 }
