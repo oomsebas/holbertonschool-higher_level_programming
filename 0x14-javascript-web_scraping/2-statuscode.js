@@ -7,5 +7,5 @@ const args = process.argv.slice(2);
 request
   .get(args[0])
   .on('response', function (response) {
-    console.log(response.statusCode); // 200
+    console.log('code: ' + response.statusCode); // 200
   });
